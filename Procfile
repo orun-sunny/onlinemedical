@@ -1,0 +1,1 @@
+web: gunicorn onlineCounseling.wsgi --log-file -

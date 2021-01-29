@@ -1,0 +1,89 @@
+
+{% extends 'counseling/base.html' %}
+{% load static %}
+
+
+
+{% block ProfileFilterView %}active{% endblock %}
+{% block body %}
+<!--{% load crispy_forms_tags %}
+<form method="POST" action="">
+	{% csrf_token %}
+	{{ form|crispy }}
+	<input class="btn btn-primary" type="submit" value="Search"/>
+
+</form> -->
+
+
+<!-- Search form -->
+
+<section class="hero-wrap hero-wrap-2" style="background-image: url(&quot;images/bg_2.jpg&quot;); background-position: 50% 769.575px;" data-stellar-background-ratio="0.5">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row no-gutters slider-text align-items-end">
+          <div class="col-md-9 ftco-animate pb-5 fadeInUp ftco-animated">
+          	<p class="breadcrumbs mb-2"><span class="mr-2"><a href="index.html">Home <i class="fa fa-chevron-right"></i></a></span> <span>Team <i class="fa fa-chevron-right"></i></span></p>
+            <h1 class="mb-0 bread">Our Experts Consultants</h1>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+<!-- img part end-->
+<section class="ftco-section">
+			<div class="container">
+				<div class="row no-gutters justify-content-center pb-5 mb-3">
+          <div class="col-md-7 heading-section text-center ftco-animate fadeInUp ftco-animated">
+          	<span class="subheading">Team &amp; Staff</span>
+            <h2>Our Experts Consultants / Therapist</h2>
+          </div>
+        </div>
+				<div class="container">
+
+  <form method="get" action="/search">
+    <input class="form-control mr-sm-2" name="query" id="query" type="search" placeholder="Search" aria-label="Search">
+    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+  </form>
+	</div>
+<div><br></div>
+				{% if user|length < 1 %}
+					<p> No Search Result AS <b> {{query}}</b></p>
+					{% endif %}
+				<div class="row">
+
+                    {%  for i in user %}
+
+					<div class="col-md-4 ftco-animate d-flex fadeInUp ftco-animated">
+						<div class="staff bg-primary">
+							<a href="\profile/{{i}}" >
+							<div class="img-wrap d-flex align-items-stretch">
+
+								<div class="img align-self-stretch" style="background-image: url({{ i.profile.user_img.url }});"></div>
+
+							</div>
+								</a  >
+							<div class="text pt-3 px-3 pb-4 text-center">
+								<h3>{{i.username}}</h3>
+								<span class="position mb-2">{{ i.profile.user_jobtitle }}</span>
+								<div class="faded">
+									<p>I am an ambitious workaholic, but apart from that, pretty simple person.</p>
+									<ul class="ftco-social text-center">
+		                <li class="ftco-animate fadeInUp ftco-animated"><a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-twitter"></span></a></li>
+		                <li class="ftco-animate fadeInUp ftco-animated"><a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-facebook"></span></a></li>
+		                <li class="ftco-animate fadeInUp ftco-animated"><a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-google"></span></a></li>
+		                <li class="ftco-animate fadeInUp ftco-animated"><a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-instagram"></span></a></li>
+		              </ul>
+	              </div>
+							</div>
+						</div>
+					</div>
+
+				{% endfor %}
+
+				</div>
+			</div>
+		</section>
+
+{% endblock %}

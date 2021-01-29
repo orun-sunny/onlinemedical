@@ -1,0 +1,35 @@
+{% extends 'counseling/base.html' %}
+{% load static %}
+{% block about %}active{% endblock %}
+{% block body %}
+
+
+
+{% load crispy_forms_tags %}
+
+ <div class="container">
+<form action="" method="POST">
+  {% csrf_token %}
+  <fieldset class="form-group" >
+
+    <legend class="border-bottom mb-4">Join Today</legend>
+    {{ form|crispy }}
+
+
+<div class="class=form-group" >
+  <button type="submit" class="btn btn-primary">Sign In</button>
+  </div>
+</fieldset>
+</form>
+
+<div class="alert alert-info" role="alert">
+  If You Already Have An Account  <a href="\log" class="alert-link">log in Your Account</a>.
+</div>
+
+ </div>
+
+
+
+
+{% endblock %}
+

@@ -1,0 +1,81 @@
+{% extends 'counseling/base.html' %}
+{% load static %}
+{% block about %}active{% endblock %}
+{% block body %}
+
+
+
+{% load crispy_forms_tags %}
+
+<div class="container">
+<div class="row">
+					<div class="col-md-4 ftco-animate d-flex fadeInUp ftco-animated">
+						<div class="staff bg-primary">
+							<div class="img-wrap d-flex align-items-stretch">
+								<img class="img align-self-stretch" src="{{ u.profile.user_img.url }}">
+							</div>
+							<div class="text pt-3 px-3 pb-4 text-center">
+								<h3>{{ u.username }} </h3>
+								<h5>{{ u.profile.user_gender }} </h5>
+								<h2 class="logo">{{ u.profile.user_country }} </h2 >
+								<span class="position mb-2">Chief Medical Officer</span>
+								<div class="faded">
+									<p>I am an ambitious workaholic, but apart from that, pretty simple person.</p>
+									<ul class="ftco-social text-center">
+		                <li class="ftco-animate fadeInUp ftco-animated"><a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-twitter"></span></a></li>
+		                <li class="ftco-animate fadeInUp ftco-animated"><a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-facebook"></span></a></li>
+		                <li class="ftco-animate fadeInUp ftco-animated"><a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-google"></span></a></li>
+		                <li class="ftco-animate fadeInUp ftco-animated"><a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-instagram"></span></a></li>
+		              </ul>
+	              </div>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4 ftco-animate d-flex fadeInUp ftco-animated">
+<div class="text mt-3">
+                <h3 class="heading"><a href="#">What Every Athlete Needs To Know About Injury Recovery</a></h3>
+                <p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
+                <p><a href="#" class="btn btn-primary">Go To His blog page.....</a></p>
+              </div>
+					</div>
+	<div class="col-md-4 ftco-animate d-flex fadeInUp ftco-animated">
+		<div class="container">
+
+		<p><a href="{% if request.user.username == u.username %}\profile_edit{% endif %}" class="btn btn-primary"> {% if u.profile.user_joinas == "DOCTOR" %} Doctor {% endif %} {% if u.profile.user_joinas == "PATIENT" %} Patient {% endif %}</a></p>
+<p><a href="{% if request.user.username == u.username %}\{{request.user}}/post_write{% endif %}" class="btn btn-primary"> write a blog</a></p>
+
+			{% if request.user.username != u.username %}
+		    <form class="form-inline my-2 my-lg-0">
+				<div class="container">
+				<select id="se1" class="form-control">
+					 <option>Client</option>
+					 <option>Counselor</option>
+				</select>
+				</div>
+				<div class="container">
+				<input class="form-control mr-sm-2" type="search" id="se2" placeholder="Search" aria-label="Search">
+				</div>
+				<div class="container">
+
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+
+				</div>
+    </form>
+			<div> <br> <a href="\messages/{{ u.username }}"> <img src="https://img.icons8.com/doodle/48/000000/chat.png"/></a></div>
+
+			{% endif %}
+		</div>
+	</div>
+
+
+
+				</div>
+
+</div>
+
+
+
+
+
+{% endblock %}
+

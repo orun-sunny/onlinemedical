@@ -25,7 +25,7 @@ SECRET_KEY = '^l$9b2k2e#rt#sk9msp9e!qdt4dh^%1m8^2grq=m$*-t4a1p$0'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['psychologycounseling.herokuapp.com','127.0.0.1']
+ALLOWED_HOSTS = ['jannatcse.herokuapp.com','127.0.0.1']
 
 
 # Application definition
